@@ -1,4 +1,4 @@
-class Car {
+class Vehicle {
   constructor(make, model, year){
     this.make = make
     this.model = model
@@ -26,5 +26,23 @@ class Motorcycle extends Vehicle{
   }
   revEngine(){
     return "VROOM!!"
+  }
+}
+
+class Garage {
+  constructor(capacity){
+    this.vehicles = []
+    this.capacity = capacity
+  }
+
+  add(vehicle){
+    if (!(vehicle instanceof Vehicle)){
+      return "Only vehicles are allowed in here!"
+    }
+    if (this.vehicles.length >= this.capacity){
+      return "Sorry, we're full."
+    }
+    this.vehicles.push(vehicle)
+    return "Vehicle Added!"
   }
 }
